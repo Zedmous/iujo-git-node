@@ -1,11 +1,18 @@
 const {response }=require('express');
 
 const usuariosGet =(req, res=response) => {
+
     res.json({ok:true,msj:'get api'})
 }
 
 const usuariosPost =(req, res) => {
-    res.status(201).json({ok:true,msj:'post api'})
+    const body=req.body;
+    const {bankai}=req.body;
+    res.status(201).json({
+        msj:'put api',
+        bankai,
+        capitan:body.capitan
+    })
 }
 const usuariosPut = (req, res) => {
     res.status(500).json({ok:true,msj:'put api'})
