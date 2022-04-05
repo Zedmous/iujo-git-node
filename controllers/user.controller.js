@@ -1,8 +1,16 @@
 const {response }=require('express');
 
 const usuariosGet =(req, res=response) => {
-
-    res.json({ok:true,msj:'get api'})
+    const params=req.query;
+    const {nombre='No nombre',apellido='No apellido',edad=-1}=req.query;
+    res.json(
+        {
+            ok:true,
+            nombre,
+            apellido,
+            edad,
+            params
+        })
 }
 
 const usuariosPost =(req, res) => {
@@ -15,7 +23,13 @@ const usuariosPost =(req, res) => {
     })
 }
 const usuariosPut = (req, res) => {
-    res.status(500).json({ok:true,msj:'put api'})
+    const id=req.params.id;
+    if(id=="1"){// si encontre id
+        res.status(200).json({id:id,msj:'put api'})
+    }else{//sino encontre
+        res.status(404).json({id:id,msj:'no encontrado'})
+    }
+    
 }
 const usuariosDelete = (req, res) => {
     res.json({ok:true,msj:'delete api'})

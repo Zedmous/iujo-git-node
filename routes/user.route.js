@@ -4,7 +4,7 @@ const router = Router();
 
 router.get('/', usuariosGet);
 router.post('/', usuariosPost)
-router.put('/',usuariosPut)
+router.put('/:id',usuariosPut)//para los parametros hay que colocar los puntos y nombre del parametro deseado
 router.patch('/',usuariosPatch)
 router.delete('/',usuariosDelete)
 
